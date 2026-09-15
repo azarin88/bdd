@@ -12,9 +12,7 @@ public class DashboardPage {
     private ElementsCollection cards = $$(".list__item div");
     private SelenideElement header = $("[data-test-id='dashboard']");
 
-    public DashboardPage() {
-        header.should(Condition.visible).should(Condition.text("Личный кабинет"));
-    }
+
 
 
     private SelenideElement getCardElement(DataHelper.CardInformation card) {

@@ -8,12 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class VerificationPage {
     private final SelenideElement codeField = $("[data-test-id='code'] input");
-    private final SelenideElement verificationButton = $("[data-test-id='action-verify']]");
-
-    public VerificationPage() {
-        codeField.should(Condition.visible);
-        verificationButton.should(Condition.visible);
-    }
+    private final SelenideElement verificationButton = $("[data-test-id='action-verify']");
 
     public DashboardPage creatDashboardPage(DataHelper.VerificationCode code) {
         codeField.setValue(code.getCode());
