@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
     private final SelenideElement loginField = $("[data-test-id='login'] input");
-    private final SelenideElement passwordField = $("data-test-id='password'] input");
+    private final SelenideElement passwordField = $("[data-test-id='password'] input");
     private final SelenideElement loginButton = $("[action-login]");
 
     public LoginPage() {
