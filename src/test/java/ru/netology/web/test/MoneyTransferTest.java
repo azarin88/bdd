@@ -20,11 +20,11 @@ public class MoneyTransferTest {
     public void shouldPassHappyPathForMoneyTransfer(){
         var loginPage = new LoginPage();
         var authenticationInformation = DataHelper.getAuthenticationInformation();
-        var verificationPage = loginPage.creatVerificationPage(authenticationInformation);
+        var verificationPage = loginPage.createVerificationPage(authenticationInformation);
         var verificationCode = DataHelper.getVerificationCode();
-        var dashboardPage = verificationPage.creatDashboardPage(verificationCode);
+        var dashboardPage = verificationPage.createDashboardPage(verificationCode);
         var cardInformation = DataHelper.getCardsInformation().get(0);
-        var transferPage = dashboardPage.creatTransferPage(cardInformation);
+        var transferPage = dashboardPage.createTransferPage(cardInformation);
         var finalPage = transferPage.transfer(DataHelper.getCardsInformation().get(1), 5000);
         Assertions.assertEquals(15000, finalPage.getCardBalance(DataHelper.getCardsInformation().get(0)));
         Assertions.assertEquals(5000, finalPage.getCardBalance(DataHelper.getCardsInformation().get(1)));
