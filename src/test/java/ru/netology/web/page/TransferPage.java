@@ -9,9 +9,9 @@ import ru.netology.web.data.DataHelper;
 import static com.codeborne.selenide.Selenide.$;
 
 public class TransferPage {
-    private SelenideElement moneyField = $("[data-test-id='amount'] input");
-    private SelenideElement cardField = $("[data-test-id='from'] input");
-    private SelenideElement transactionButton = $("[data-test-id='action-transfer']");
+    private final SelenideElement moneyField = $("[data-test-id='amount'] input");
+    private final SelenideElement cardField = $("[data-test-id='from'] input");
+    private final SelenideElement transactionButton = $("[data-test-id='action-transfer']");
 
     public TransferPage() {
         moneyField.should(Condition.visible);
