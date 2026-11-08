@@ -3,7 +3,6 @@ package ru.netology.web.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.web.data.DataHelper;
 
 
 import static com.codeborne.selenide.Selenide.$;
@@ -19,9 +18,9 @@ public class TransferPage {
         transactionButton.should(Condition.visible);
     }
 
-    public DashboardPage transfer(DataHelper.CardInformation card, int amount) {
+    public DashboardPage transfer(String number, int amount) {
         moneyField.setValue(String.valueOf(amount));
-        cardField.setValue(card.getCardNumber());
+        cardField.setValue(number);
         transactionButton.click();
         return new DashboardPage();
     }
