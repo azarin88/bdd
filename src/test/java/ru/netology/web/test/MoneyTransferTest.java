@@ -23,9 +23,12 @@ public class MoneyTransferTest {
         var verificationPage = loginPage.createVerificationPage(authenticationInformation);
         var verificationCode = DataHelper.getVerificationCode();
         var dashboardPage = verificationPage.createDashboardPage(verificationCode);
+        var balanceFirstCard = dashboardPage.getCardBalance(0);
+        var balanceSecondCard = dashboardPage.getCardBalance(1);
+        var amount = DataHelper.getAmount(balanceFirstCard,balanceSecondCard);
         var transferPage = dashboardPage.createTransferPage(0);
-        var finalPage = transferPage.transfer(DataHelper.getCardsInformation().get(1).getCardNumber(), dashboardPage.amount);
-        Assertions.assertEquals(dashboardPage.balanceFirstCard + dashboardPage.amount, finalPage.getCardBalance(0));
-        Assertions.assertEquals(dashboardPage.balanceSecondCard - dashboardPage.amount, finalPage.getCardBalance(1));
+        var finalPage = transferPage.transfer(DataHelper.getCardsInformation().get(1).getCardNumber(), amount);
+        Assertions.assertEquals(balanceFirstCard + amount, finalPage.getCardBalance(0));
+        Assertions.assertEquals(balanceSecondCard - amount, finalPage.getCardBalance(1));
     }
 }
